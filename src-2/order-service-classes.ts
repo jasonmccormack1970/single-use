@@ -21,7 +21,11 @@ export class OrderService {
   private orderRepository: OrderRepository;
   private customerNotifier: CustomerNotifier;
 
-  constructor(orderProcessor: OrderProcessor, orderRepository: OrderRepository, customerNotifier: CustomerNotifier) {
+  constructor(
+    orderProcessor: OrderProcessor,
+    orderRepository: OrderRepository,
+    customerNotifier: CustomerNotifier
+  ) {
     this.orderProcessor = orderProcessor;
     this.orderRepository = orderRepository;
     this.customerNotifier = customerNotifier;

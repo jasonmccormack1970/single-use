@@ -1,8 +1,10 @@
+/// <reference path="./types.ts" />
 import express, { Application, Request, Response } from "express";
 import { OrderService } from "./order-service";
-// import { OrderService, OrderProcessor, OrderRepository, CustomerNotifier } from "./order-service-classes";
+import { handleUserOperations } from "./order-service";
+import { Order } from "./types";
 
-const app = express();
+const app: Application = express();
 const port: number = 3000;
 
 app.get("/", (re: Request, res: Response) => {
@@ -10,17 +12,9 @@ app.get("/", (re: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-
-console.log(`Application listening on port ${port}`);
-const orderService = new OrderService();
-orderService.processOrder({ id: 1, item: 'Book', quantity: 2 });
-
-// const orderProcessor = new OrderProcessor();
-// const orderRepository = new OrderRepository();
-// const customerNotifier = new CustomerNotifier();
-// const orderService = new OrderService(orderProcessor, orderRepository, customerNotifier);
-
-// const order = { id: 1, item: 'Book', quantity: 2 };
-// orderService.processOrder(order);
-
+  console.log(`Application listening on port ${port}`);
+  const orderService = new OrderService();
+  orderService.processOrder({ id: 1, item: "Book", quantity: 2 } as Order);
+  handleUserOperations('user123');
+  console.log("Done ........");
 });
