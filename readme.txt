@@ -1,4 +1,7 @@
-classes single responsibility
+Definition
+The Single Responsibility Principle (SRP), the first of the five principles of SOLID, is a fundamental concept in object-oriented software development.
+This principle states that a class should have only one reason to change, meaning it should be responsible for only one part of the software’s functionality.
+You should apply this principle not only to classes but also to functions, modules, etc.
 
 import { OrderService, OrderProcessor, OrderRepository, CustomerNotifier } from "./order-service-classes";
 
